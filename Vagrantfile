@@ -1,5 +1,5 @@
 VAGRANTFILE_API_VERSION = "2"
-STORM_VERSION = "storm-0.9.0.1"
+STORM_VERSION = "v0.9.1.0-incubating"
 STORM_ARCHIVE = "./#{STORM_VERSION}.zip"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -7,7 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.hostmanager.enabled = true
 
   if (!File.file?(STORM_ARCHIVE))
-    `wget -N https://dl.dropboxusercontent.com/s/dj86w8ojecgsam7/storm-0.9.0.1.zip`
+    `wget -N https://github.com/apache/incubator-storm/archive/v0.9.1.0-incubating.zip`
   end
 
   config.vm.define "zookeeper" do |zookeeper|
@@ -50,7 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     supervisor.vm.provision "shell", path: "config-supervisord.sh", args: "logviewer"
     supervisor.vm.provision "shell", path: "start-supervisord.sh"
   end
-  
+
   config.vm.define "supervisor3" do |supervisor|
     supervisor.vm.box = "hashicorp/precise32"
     supervisor.vm.network "private_network", ip: "192.168.50.7"
