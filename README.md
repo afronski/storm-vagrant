@@ -2,7 +2,7 @@
 
 Vagrant config to create a virtualized Storm cluster.
 
-## Vagrant box
+## Dependencies
 
-`vagrant box add hashicorp/precise32`
-
+Box: `vagrant box add hashicorp/precise32`
+Plugins: `vagrant plugin install vagrant-hostmanager`
