@@ -1,5 +1,5 @@
 VAGRANTFILE_API_VERSION = "2"
-STORM_VERSION = "incubator-storm-0.9.1.0-incubating"
+STORM_VERSION = "apache-storm-0.9.2-incubating"
 STORM_ARCHIVE = "./#{STORM_VERSION}.zip"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -7,7 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.hostmanager.enabled = true
 
   if (!File.file?(STORM_ARCHIVE))
-    `wget -N https://github.com/apache/incubator-storm/archive/v0.9.1.0-incubating.zip -O #{STORM_ARCHIVE}`
+    `wget -N http://ftp.piotrkosoft.net/pub/mirrors/ftp.apache.org/incubator/storm/apache-storm-0.9.2-incubating/apache-storm-0.9.2-incubating.zip -O #{STORM_ARCHIVE}`
   end
 
   config.vm.define "zookeeper" do |zookeeper|
