@@ -1,12 +1,12 @@
 VAGRANTFILE_API_VERSION = "2"
-STORM_VERSION = "storm-0.9.1-incubating-SNAPSHOT"
-STORM_ARCHIVE = "#{STORM_VERSION}.zip"
+STORM_VERSION = "storm-0.9.0.1"
+STORM_ARCHIVE = "./#{STORM_VERSION}.zip"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.hostmanager.manage_host = true
   config.hostmanager.enabled = true
 
-  if (!File.exist?(STORM_ARCHIVE))
+  if (!File.file?(STORM_ARCHIVE))
     `wget -N https://dl.dropboxusercontent.com/s/dj86w8ojecgsam7/storm-0.9.0.1.zip`
   end
 
