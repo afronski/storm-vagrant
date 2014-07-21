@@ -50,4 +50,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     supervisor.vm.provision "shell", path: "config-supervisord.sh", args: "logviewer"
     supervisor.vm.provision "shell", path: "start-supervisord.sh"
   end
+  
+  config.vm.define "supervisor3" do |supervisor|
+    supervisor.vm.box = "hashicorp/precise32"
+    supervisor.vm.network "private_network", ip: "192.168.50.7"
+    supervisor.vm.hostname = "supervisor3"
+
+    supervisor.vm.provision "shell", path: "install-storm.sh", args: STORM_VERSION
+    supervisor.vm.provision "shell", path: "config-supervisord.sh", args: "supervisor"
+    supervisor.vm.provision "shell", path: "config-supervisord.sh", args: "logviewer"
+    supervisor.vm.provision "shell", path: "start-supervisord.sh"
+  end
 end
