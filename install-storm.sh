@@ -17,7 +17,7 @@ chown storm:storm /etc/storm
 rm /usr/share/storm/conf/storm.yaml
 cp /vagrant/storm.yaml /usr/share/storm/conf/
 cp /vagrant/cluster.xml /usr/share/storm/logback/
-ln -s /usr/share/storm/conf/storm.yaml /etc/storm/storm.yaml 
+ln -s /usr/share/storm/conf/storm.yaml /etc/storm/storm.yaml
 
 mkdir /var/log/storm
 chown storm:storm /var/log/storm
