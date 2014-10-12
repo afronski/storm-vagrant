@@ -1,3 +1,5 @@
+#!/bin/bash
+
 apt-get update
 apt-get install -y unzip supervisor openjdk-6-jdk
 
@@ -21,5 +23,3 @@ ln -s /usr/share/storm/conf/storm.yaml /etc/storm/storm.yaml
 
 mkdir /var/log/storm
 chown storm:storm /var/log/storm
-
-#sed -i 's/${storm.home}\/logs/\/var\/log\/storm/g' /usr/share/storm/logback/cluster.xmls

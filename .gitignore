@@ -1,3 +1,6 @@
+# Binaries:
 *.zip
 *.jar
+
+# Vagrant directory:
 .vagrant/

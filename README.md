@@ -1,4 +1,4 @@
-# storm-vagrant
+# vagrant-storm
 
 Vagrant config to create a virtualized Storm cluster.
 
